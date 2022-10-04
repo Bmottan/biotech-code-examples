@@ -7,5 +7,5 @@
 * PCA: análise de componentes principais
 * Algoritmo genético
 
-<img src="PCA/results.png" >
+<img src="PCA/result.png" >
 
