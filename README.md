@@ -3,7 +3,7 @@
 
 * Balanço de massa em reator CSTR
 * Transformação de imagem por SVD
-*Análise da equação de Hill
+* Análise da equação de Hill
 * PCA: análise de componentes principais
 * Algoritmo genético
 
