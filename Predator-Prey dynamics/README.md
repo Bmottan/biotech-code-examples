@@ -29,5 +29,11 @@ Figure 2 – Different population dynamics with varying IPTG induction levels (0
 <img src="result2.png" style="width: 50%">
 Figure 3 – Bifurcation plot for different predator growth and death rates.
 
+The population dynamics is not only a function of IPTG concentration, but also the dilution rate of the microchemostat used for experiments. High dilution rates could washout a cell population if their concentration is very low. A new bifurcation analysis was done for different IPTG and dilution conditions:
+
+<img src="result3.png" style="width: 50%">
+Figure 4 – Bifurcation analysis at different dilution rates and IPTG concentrations. 
+
+
 
 
