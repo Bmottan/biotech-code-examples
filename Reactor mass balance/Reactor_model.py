@@ -2,6 +2,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.integrate import solve_ivp
+from cycler import cycler
 
 # System Model Function
 def dy(t,y):
@@ -74,30 +75,37 @@ for i in range(len(sol.y[0])):
 #**********************************************
 
 # Define plot space
-fig, ax1 = plt.subplots(figsize=(10,10))
-fig.suptitle("Simulação de Reator: CSTR", fontsize =20, fontweight='bold')
+plt.style.use(r'C:\Users\bruno\OneDrive\Documentos\GitHub\biotech-code-examples\style_preset\plot_preset.mplstyle')
+
+fig, ax1 = plt.subplots()
+fig.suptitle("Simulação de Reator: CSTR")
 
 # Data: Substrate
-ax1.plot(sol.t, S, color = 'magenta', linestyle='-', label='S (g/L)')
+ax1.plot(sol.t, S, label='S (g/L)')
 
 # Data: Biomass
 ax2 = ax1.twinx()
-ax2.plot(sol.t, X, color = 'blue', linestyle='-', label='X (g/L)')
+ax2.plot(sol.t, X, color=next(ax1._get_lines.prop_cycler)['color'], label='X (g/L)') #skip to next color in scheme
 
 # Data: Product
-ax2.plot(sol.t, P, color = 'red', linestyle='-', label='P (g/L)')
+ax2.plot(sol.t, P, color=next(ax1._get_lines.prop_cycler)['color'], label='P (g/L)')
 
 # Data: Volume
-ax2.plot(sol.t, V, color = 'gray', linestyle='-', label='V (L)')
+ax2.plot(sol.t, V, color=next(ax1._get_lines.prop_cycler)['color'], label='V (L)')
 
 # Labels and format
-ax1.set_xlabel('Tempo (h)', loc='center', fontsize=15)
-ax1.set_ylabel('Substrato S (g/L)', loc='center', fontsize=15, labelpad=15)
-ax1.legend(loc='upper center', bbox_to_anchor=(0.2, 0.9), 
-           frameon=False, ncol=1, fontsize=15)
-ax2.set_ylabel('Biomassa X (g/L),   Produto P (g/L),   Volume V (L)',
-               loc='center', fontsize=15, labelpad=15)
-ax2.legend(loc='upper center', bbox_to_anchor=(0.2, 0.86), 
-           frameon=False, ncol=1, fontsize=15)
+ax1.set_xlabel('Tempo (h)')
+ax1.set_ylabel('Substrato S (g/L)')
+ax2.set_ylabel('Biomassa X (g/L),   Produto P (g/L), \n  Volume V (L)')
+
+ax1.text(x=0.6, y=0.8, s="S", 
+        transform=fig.transFigure, ha='left', fontsize=14)
+ax1.text(x=0.75, y=0.12, s="X", 
+        transform=fig.transFigure, ha='left', fontsize=14)
+ax1.text(x=0.9, y=0.7, s="P", 
+        transform=fig.transFigure, ha='left', fontsize=14)
+ax1.text(x=0.4, y=0.23, s="V", 
+        transform=fig.transFigure, ha='left', fontsize=14)
+
 
 #**********************************************

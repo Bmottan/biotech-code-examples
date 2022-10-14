@@ -1,11 +1,11 @@
 # Custom preset for plot style
 
-# Set custom colors. All colors are in web style hex format.
-axes.prop_cycle: cycler('color', ['2CBDFE', 'F5B14C', '9D2EC5', '47DBCD', 'F3A0F2', 'bf041a', '282829', '661D98', '81a1b5', '756039'])
+# Set custom colors. Color scheme adapted for color-blind vision. Source: https://personal.sron.nl/~pault/
+axes.prop_cycle: cycler('color', ['4477AA', 'EE6677', 'CCBB44', '228833', '66CCEE', 'AA3377', 'BBBBBB'])
 
 # Style spines
 axes.linewidth: 1               # Spine edge line width
-axes.spines.top: True          # Display axis spines (True or False)
+axes.spines.top: True           # Display axis spines (True or False)
 axes.spines.left: True          # We only want the left and bottom spines
 axes.spines.right: True
 axes.spines.bottom: True
@@ -13,11 +13,11 @@ axes.edgecolor: k
 
 # Set line styling for line plots
 lines.linewidth: 2              # line width in points
-lines.solid_capstyle: round      # Makes a square ending of the line stopping at datapoint
+lines.solid_capstyle: round     # Makes a square ending of the line stopping at datapoint
 
 # Grid style
 axes.grid: True                 # display grid or not
-axes.grid.axis: both              # which axis the grid should apply to          
+axes.grid.axis: both            # which axis the grid should apply to          
 grid.linewidth: 1               # in points
 grid.color: eeeeee              # grid color
 axes.axisbelow: True            # Sets axis gridlines below lines and patches.

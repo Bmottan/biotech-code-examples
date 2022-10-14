@@ -44,6 +44,7 @@ def PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D):
 
 
 # Plot ODEs *******************************************************************
+plt.style.use(r'C:\Users\bruno\OneDrive\Documentos\GitHub\biotech-code-examples\style_preset\plot_preset.mplstyle')
 
 fig1, axs = plt.subplots(2,3, figsize=(30, 15))
 
@@ -86,7 +87,7 @@ for i in range(0,3):
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.integrate import solve_ivp
-
+import mpl_toolkits.axes_grid1.inset_locator as il
 
 # Bifurcation Predator Growth x Death
 # Parameters ******************************************************************
@@ -170,23 +171,77 @@ for i in range(0,100): #column
 
 
 # Plot
-fig2, axs = plt.subplots(1,1, figsize=(20,20))
+plt.style.use(r'C:\Users\bruno\OneDrive\Documentos\GitHub\biotech-code-examples\style_preset\plot_preset.mplstyle')
+
+fig2, axs = plt.subplots(1,1, figsize=(10,10))
 
 axs.scatter(*zip(*monostable_predator), marker="s", s=100, label='Predator domination')
 axs.scatter(*zip(*monostable_prey), marker="s", s=100, label='Prey domination')
 axs.scatter(*zip(*bistable), marker="s", s=100, label='Oscillatory behavior')
-axs.legend(loc='upper center', bbox_to_anchor=(0.2, 0.9), 
-           frameon=True, ncol=1, fontsize=18)
-axs.set_xlabel('kc1 ($h^{-1}$)', loc='center', fontsize=18, labelpad=15)
-axs.set_ylabel('dc1 ($h^{-1}$)', loc='center', fontsize=18, labelpad=15)
-axs.set_title('Bifurcation plot for predator \n growth vs death rates', fontsize=20, fontweight='bold')
+axs.set_xlabel('kc1 ($h^{-1}$)')
+axs.set_ylabel('dc1 ($h^{-1}$)')
+axs.set_title('Bifurcation plot for predator \n growth vs death rates')
+
+axs.text(x=0.2, y=0.8, s="Prey domination", 
+        transform=fig2.transFigure, ha='left', fontsize=18)
+axs.text(x=0.6, y=0.8, s="Oscillatory behavior", 
+        transform=fig2.transFigure, ha='left', fontsize=18)
+axs.text(x=0.6, y=0.35, s="Predator domination", 
+        transform=fig2.transFigure, ha='left', fontsize=18)
+
+# Add inset plot on diff regions:
+## mono pred *******************************************************************
+kc1=1.75
+dc1=0.25
+# ODEs for cells and AHL    
+C0 = [20, 20, 0, 0] #initial concentrations (cells/nL , cells/nL , nM , nM)
+tspan = [0, 400] # time span (h)
+teval = np.arange(0, tspan[1]+1, 1) 
+sol = solve_ivp(lambda t,C: PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D), tspan, C0, method = 'RK45', t_eval=teval)
+axins = il.inset_axes(axs, "30%", "30%", loc='lower left', borderpad=0,
+    bbox_to_anchor=(0.6,0.15,0.7,0.4),bbox_transform=axs.transAxes)
+axins.plot(sol.t, sol.y[0], label='Predator')
+axins.plot(sol.t, sol.y[1], label='Prey')
+axins.set_xlabel('Time')
+axins.set_ylabel('Cells')
+## mono prey *******************************************************************
+kc1=0.25
+dc1=1.5
+# ODEs for cells and AHL    
+C0 = [20, 20, 0, 0] #initial concentrations (cells/nL , cells/nL , nM , nM)
+tspan = [0, 400] # time span (h)
+teval = np.arange(0, tspan[1]+1, 1) 
+sol = solve_ivp(lambda t,C: PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D), tspan, C0, method = 'RK45', t_eval=teval)
+axins = il.inset_axes(axs, "30%", "30%", loc='lower left', borderpad=0,
+    bbox_to_anchor=(0.15,0.7,0.7,0.4),bbox_transform=axs.transAxes)
+axins.plot(sol.t, sol.y[0], label='Predator')
+axins.plot(sol.t, sol.y[1], label='Prey')
+axins.set_xlabel('Time')
+axins.set_ylabel('Cells')
+## bistable ********************************************************************
+kc1=1.25
+dc1=1.5
+# ODEs for cells and AHL    
+C0 = [20, 20, 0, 0] #initial concentrations (cells/nL , cells/nL , nM , nM)
+tspan = [0, 400] # time span (h)
+teval = np.arange(0, tspan[1]+1, 1) 
+sol = solve_ivp(lambda t,C: PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D), tspan, C0, method = 'RK45', t_eval=teval)
+axins = il.inset_axes(axs, "30%", "30%", loc='lower left', borderpad=0,
+    bbox_to_anchor=(0.55,0.7,0.7,0.4),bbox_transform=axs.transAxes)
+axins.plot(sol.t, sol.y[0], label='Predator')
+axins.plot(sol.t, sol.y[1], label='Prey')
+axins.set_xlabel('Time')
+axins.set_ylabel('Cells')
+
+
 
 #%%
 # Libraries
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.integrate import solve_ivp
-
+import mpl_toolkits.axes_grid1.inset_locator as il
+from matplotlib import ticker as mticker
 
 # Bifurcation Dilution x IPTG
 # Parameters ******************************************************************
@@ -266,16 +321,74 @@ for i in range(0,100): #column (D)
 
 
 # Plot
-fig3, axs = plt.subplots(1,1, figsize=(20,20))
+plt.style.use(r'C:\Users\bruno\OneDrive\Documentos\GitHub\biotech-code-examples\style_preset\plot_preset.mplstyle')
+
+fig3, axs = plt.subplots(1,1, figsize=(10,10))
 
 axs.scatter(*zip(*monostable_predator), marker="s", s=100, label='Predator domination')
 axs.scatter(*zip(*monostable_prey), marker="s", s=100, label='Prey domination')
 axs.scatter(*zip(*bistable), marker="s", s=100, label='Oscillatory behavior')
-axs.legend(loc='upper center', bbox_to_anchor=(0.2, 0.9), 
-           frameon=True, ncol=1, fontsize=18)
-axs.set_xlabel('D ($h^{-1}$)', loc='center', fontsize=18, labelpad=15)
-axs.set_ylabel('IPTG ($\mu M}$)', loc='center', fontsize=18, labelpad=15)
+axs.set_xlabel('D ($h^{-1}$)')
+axs.set_ylabel('IPTG ($\mu M}$)')
 axs.set_yscale('log')
-axs.set_title('Bifurcation plot for \n dilution rates vs IPTG concentrations', fontsize=20, fontweight='bold')
+axs.set_title('Bifurcation plot for \n dilution rates vs IPTG concentrations')
+# Log scale minor ticks
+axs.minorticks_on()
+axs.tick_params(axis='y', which='minor', length=3)
+
+axs.text(x=0.75, y=0.75, s="Prey \n"+"domination", 
+        transform=fig3.transFigure, ha='left', fontsize=18)
+axs.text(x=0.2, y=0.8, s="Oscillatory behavior", 
+        transform=fig3.transFigure, ha='left', fontsize=18)
+axs.text(x=0.15, y=0.12, s="Predator domination", 
+        transform=fig3.transFigure, ha='left', fontsize=18)
+axs.arrow(x=0.02, y=1.5, dx=0.01, dy=1, color='k', head_length=0.2, head_width=0.005)
+
+# Add inset plot on diff regions:
+## mono pred *******************************************************************
+dc1 = 0.5 + 1*(2**2)/(25+2**2) # death rate for 1 (h^-1)
+kA2 = 0.02 + 0.03*(2**2)/(25+2**2) # AHL 2 synthesis rate (nM.mL/h)
+D=0.025
+# ODEs for cells and AHL    
+C0 = [20, 20, 0, 0] #initial concentrations (cells/nL , cells/nL , nM , nM)
+tspan = [0, 400] # time span (h)
+teval = np.arange(0, tspan[1]+1, 1) 
+sol = solve_ivp(lambda t,C: PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D), tspan, C0, method = 'RK45', t_eval=teval)
+axins = il.inset_axes(axs, "30%", "30%", loc='lower left', borderpad=0,
+    bbox_to_anchor=(0.2,0.2,0.7,0.4),bbox_transform=axs.transAxes)
+axins.plot(sol.t, sol.y[0], label='Predator')
+axins.plot(sol.t, sol.y[1], label='Prey')
+axins.set_xlabel('Time')
+axins.set_ylabel('Cells')
+## mono prey *******************************************************************
+dc1 = 0.5 + 1*(10**2)/(25+10**2) # death rate for 1 (h^-1)
+kA2 = 0.02 + 0.03*(10**2)/(25+10**2) # AHL 2 synthesis rate (nM.mL/h)
+D=0.175
+# ODEs for cells and AHL    
+C0 = [20, 20, 0, 0] #initial concentrations (cells/nL , cells/nL , nM , nM)
+tspan = [0, 400] # time span (h)
+teval = np.arange(0, tspan[1]+1, 1) 
+sol = solve_ivp(lambda t,C: PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D), tspan, C0, method = 'RK45', t_eval=teval)
+axins = il.inset_axes(axs, "30%", "30%", loc='lower left', borderpad=0,
+    bbox_to_anchor=(0.73,0.7,0.7,0.4),bbox_transform=axs.transAxes)
+axins.plot(sol.t, sol.y[0], label='Predator')
+axins.plot(sol.t, sol.y[1], label='Prey')
+axins.set_xlabel('Time')
+axins.set_ylabel('Cells')
+## bistable ********************************************************************
+dc1 = 0.5 + 1*(100**2)/(25+100**2) # death rate for 1 (h^-1)
+kA2 = 0.02 + 0.03*(100**2)/(25+100**2) # AHL 2 synthesis rate (nM.mL/h)
+D=0.1
+# ODEs for cells and AHL    
+C0 = [20, 20, 0, 0] #initial concentrations (cells/nL , cells/nL , nM , nM)
+tspan = [0, 400] # time span (h)
+teval = np.arange(0, tspan[1]+1, 1) 
+sol = solve_ivp(lambda t,C: PredPray(t,C,kc1,kc2,cmax,beta,dc1,dc2,K1,K2,kA1,kA2,d_Ae1,d_Ae2,D), tspan, C0, method = 'RK45', t_eval=teval)
+axins = il.inset_axes(axs, "30%", "30%", loc='lower left', borderpad=0,
+    bbox_to_anchor=(0.25,0.7,0.7,0.4),bbox_transform=axs.transAxes)
+axins.plot(sol.t, sol.y[0], label='Predator')
+axins.plot(sol.t, sol.y[1], label='Prey')
+axins.set_xlabel('Time')
+axins.set_ylabel('Cells')
 
 
