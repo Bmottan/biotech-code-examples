@@ -1,6 +1,6 @@
 Equation:
 
-$Atividade enz = a + b(Temp) + c(pH) + d(Temp)(pH) + e(Temp)^2 + f(pH)^2$
+$Atividade_enz = a + b*(Temp) + c*(pH) + d*(Temp)(pH) + e*(Temp)^2 + f*(pH)^2$
 
 Fitted prameters:
 [-3.21005501e+00  9.36254010e-02  7.15362546e-01 
