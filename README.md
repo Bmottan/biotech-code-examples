@@ -7,9 +7,9 @@
 * [Transformação de imagem por SVD](https://github.com/Bmottan/biotech-code-examples/tree/main/Image%20SVD)
 * [PCA: análise de componentes principais](https://github.com/Bmottan/biotech-code-examples/tree/main/PCA)
 * [Algoritmo genético - estimativa de parâmetros](https://github.com/Bmottan/biotech-code-examples/tree/main/Genetic%20algorithm)
-* [Rede neural](https://github.com/Bmottan/biotech-code-examples)
+* [Rede neural (no upload)](https://github.com/Bmottan/biotech-code-examples)
 * [Modelo presa-predador](https://github.com/Bmottan/biotech-code-examples/tree/main/Predator-Prey%20dynamics)
-* [FBA](https://github.com/Bmottan/biotech-code-examples)
+* [FBA (no upload)](https://github.com/Bmottan/biotech-code-examples)
 
 <img src="Reactor mass balance/generic_reactor.png" >
 
