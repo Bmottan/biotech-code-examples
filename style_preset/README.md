@@ -1,6 +1,6 @@
-#Color Palettes
+# Color Palettes
 
-##QUALITATIVE COLOUR SCHEMES
+## QUALITATIVE COLOUR SCHEMES
 
 Bright:
 
@@ -8,7 +8,7 @@ Bright:
 
 <img src="Bright.png" >
 
-##DIVERGING COLOUR SCHEMES
+## DIVERGING COLOUR SCHEMES
 
 Sunset:
 
@@ -16,7 +16,7 @@ Sunset:
 
 <img src="Sunset.png" >
 
-##SEQUENTIAL COLOUR SCHEMES
+## SEQUENTIAL COLOUR SCHEMES
 
 YlOrBr:
 
