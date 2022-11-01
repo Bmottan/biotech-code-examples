@@ -10,7 +10,8 @@ Bright:
 Most people who are colorblind have some form of red-green colorblindness, such as deuteranomaly, deuteranopia, or protanopia. The 'Bright' color scheme would be visualized as:
 
 <img src="Bright_colorblind.png" style="width: 50%">
-Ref: [Coblis — Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator)
+
+Ref: [Coblis - Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator)
 
 ## DIVERGING COLOUR SCHEMES
 
@@ -19,10 +20,11 @@ Sunset:
 
 <img src="Sunset.png" >
 
-Most people who are colorblind have some form of red-green colorblindness, such as deuteranomaly, deuteranopia, or protanopia. The 'Bright' color scheme would be visualized as:
+Most people who are colorblind have some form of red-green colorblindness, such as deuteranomaly, deuteranopia, or protanopia. The 'Sunset' color scheme would be visualized as:
 
 <img src="Sunset_colorblind.png" style="width: 50%">
-Ref: [Coblis — Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator)
+
+Ref: [Coblis - Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator)
 
 ## SEQUENTIAL COLOUR SCHEMES
 
@@ -31,7 +33,8 @@ YlOrBr:
 
 <img src="YlOrBr.png" >
 
-Most people who are colorblind have some form of red-green colorblindness, such as deuteranomaly, deuteranopia, or protanopia. The 'Bright' color scheme would be visualized as:
+Most people who are colorblind have some form of red-green colorblindness, such as deuteranomaly, deuteranopia, or protanopia. The 'YlOrBr' color scheme would be visualized as:
 
 <img src="YlOrBr_colorblind.png" style="width: 50%">
-Ref: [Coblis — Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator)
+
+Ref: [Coblis - Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator)
