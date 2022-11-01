@@ -1,3 +1,10 @@
+# Matplotlib preset style
+
+How to use the .mplstyle file in your code: 
+
+> plt.style.use(r'C:\...Your Folders...\plot_preset.mplstyle')
+
+
 # Color Palettes
 
 ## QUALITATIVE COLOUR SCHEMES
