@@ -10,6 +10,7 @@
 * [Rede neural (no upload)](https://github.com/Bmottan/biotech-code-examples)
 * [Modelo presa-predador](https://github.com/Bmottan/biotech-code-examples/tree/main/Predator-Prey%20dynamics)
 * [FBA (no upload)](https://github.com/Bmottan/biotech-code-examples)
+* [Testes de Comparações Múltiplas](https://github.com/Bmottan/biotech-code-examples/tree/main/Statistical%20difference)
 
 <img src="Reactor mass balance/generic_reactor.png" >
 
