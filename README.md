@@ -3,11 +3,11 @@
 
 ## Análise de EDOs 
 * [Balanço de massa em reator CSTR](https://github.com/Bmottan/biotech-code-examples/tree/main/Reactor%20mass%20balance)
-* [Equções de crescimento celular](https://github.com/Bmottan/biotech-code-examples/tree/main/Growth%20models)
+* [Equações de crescimento celular](https://github.com/Bmottan/biotech-code-examples/tree/main/Growth%20models)
 * [Análise da equação de Hill](https://github.com/Bmottan/biotech-code-examples/tree/main/Hill%20equation)
 * [Modelo presa-predador](https://github.com/Bmottan/biotech-code-examples/tree/main/Predator-Prey%20dynamics)
 * [FBA - Análise de fluxo metabólico (no upload)](https://github.com/Bmottan/biotech-code-examples)
-<img src="Reactor mass balance/generic_reactor.png" style="width: 50%">
+<img src="Reactor mass balance/generic_reactor.png">
 
 ## Predição
 * [Algoritmo genético - estimativa de parâmetros](https://github.com/Bmottan/biotech-code-examples/tree/main/Genetic%20algorithm)
@@ -21,7 +21,8 @@
 
 ## Análise estatística
 * [Teste de Comparações Múltiplas de Amostras (ANOVA/Tukey)](https://github.com/Bmottan/biotech-code-examples/tree/main/Statistical%20difference)
-* [Regressão não linear - Atividade enzimática] (https://github.com/Bmottan/biotech-code-examples/tree/main/Enzyme%20activity%20-%20surface%20plot)
+* [Regressão não linear - Atividade enzimática](https://github.com/Bmottan/biotech-code-examples/tree/main/Enzyme%20activity%20-%20surface%20plot)
+* [Regressão linear - Curva padrão de proteína](https://github.com/Bmottan/biotech-code-examples/tree/main/Linear%20Regression)
 <img src="Enzyme activity - surface plot/result.png" style="width: 50%">
 
 ## Seleção de cores para gráficos
