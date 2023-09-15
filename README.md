@@ -32,5 +32,5 @@
 
 ## (Arduino) Incubadora com medição de temperatura e umidade
 * [Medição de temperatura e upload em webserver](https://github.com/Bmottan/biotech-code-examples/tree/main/Arduino)
-<img src="" style="width: 50%">
+<img src="Arduino/page.png" style="width: 50%">
 
